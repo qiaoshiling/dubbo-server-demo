@@ -1,0 +1,23 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!--服务名-->
+    <dubbo:application name="dubbo-server"/>
+
+    <!--&lt;!&ndash;zookeeper地址&ndash;&gt;
+    <dubbo:registry address="zookeeper://192.168.10.65:2181"/>-->
+
+    <!--协议名称-->
+    <dubbo:protocol name="dubbo" port="20890"/>
+
+
+    <dubbo:service interface="com.qsl.demo.api.IPayServer" ref="IPayServer"/>
+
+    <bean id="IPayServer" class="com.qsl.demo.impl.PayServer"/>
+
+
+
+</beans>
